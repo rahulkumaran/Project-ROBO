@@ -2,4 +2,4 @@
 
 Project for satti pandu
 
-this a git repository
+this a git repository bro!!
