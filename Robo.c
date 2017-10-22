@@ -1,5 +1,5 @@
 #include <graphics.h>
-float FX,FY,BX,BY;
+float FX,FY,BX,BY,ax,bx,ay,by;
 void DDALine(float x1,float y1,float x2,float y2)
 {
   float x,y,dx,dy,step;
@@ -31,15 +31,15 @@ void main( )
   BX=320; BY=240; FX=BX; FY=BY-60;
   int gd=DETECT,gm;
   initgraph(&gd,&gm,"NULL");
-  //--Head    
+  //--Head
     //Cap
     circle(FX,FY-40,5);
     DDARect(FX-2.5,FY-25,FX+2.5,FY-35);
     arc(FX,FY-20,180,360,5);
     //Face
       DDARect(FX-20,FY+20,FX+20,FY-20);//Face Outline
-      DDARect(FX-15,FY,FX-5,FY-10);//LEFT_EYE
-      DDARect(FX+5,FY,FX+15,FY-10);//RIGHT_EYE
+      DDARect(FX-15,FY,FX-5,FY-10);//Left Eye
+      DDARect(FX+5,FY,FX+15,FY-10);//Right Eye
       //Mouth
         DDARect(FX-10,FY+15,FX+10,FY+10);
         //TEETH
@@ -60,7 +60,13 @@ void main( )
     DDARect(BX+25,BY+70,BX+10,BY+30); //  Right Leg
     arc(BX+17.5,BY+70,180,360,7.5); //  Right Foot
     //Left_Hand
-    //DDA FUCK :: ADD CODE HERE
+      ax=BX-47,ay=BY-5;
+      bx=BX-47,by=BY+5;
+      for(int i=0;i<10;i++)
+      {
+        putpixel(ax,ay,WHITE);putpixel(bx,by,WHITE);
+        ax+=1.7;bx+=1.7;ay-=1;by-=1;
+      }
     circle(BX-47,BY,5);
     DDALine(BX-47,BY-25,BX-64,BY-15);
     DDALine(BX-47,BY-15,BX-64,BY-5);
@@ -68,7 +74,13 @@ void main( )
     DDALine(BX+47,BY-5,BX+30,BY-15);
     DDALine(BX+47,BY+5,BX+30,BY-5);
     circle(BX+47,BY,5);
-    //DDA Fuck :: ADD CODE HERE
+      ax=BX+47,ay=BY-5;
+      bx=BX+47,by=BY+5;
+      for(int i=0;i<10;i++)
+      {
+        putpixel(ax,ay,WHITE);putpixel(bx,by,WHITE);
+        ax+=1.7;bx+=1.7;ay-=1;by-=1;
+      }
   //END
   delay(5000);  getch();
 }
