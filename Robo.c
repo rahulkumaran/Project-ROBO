@@ -68,19 +68,12 @@ void main( )
         ax+=1.7;bx+=1.7;ay-=1;by-=1;
       }
     circle(BX-47,BY,5);
-    DDALine(BX-47,BY-25,BX-64,BY-15);
-    DDALine(BX-47,BY-15,BX-64,BY-5);
     //Right_Hand
     DDALine(BX+47,BY-5,BX+30,BY-15);
     DDALine(BX+47,BY+5,BX+30,BY-5);
     circle(BX+47,BY,5);
       ax=BX+47,ay=BY-5;
       bx=BX+47,by=BY+5;
-      for(int i=0;i<10;i++)
-      {
-        putpixel(ax,ay,WHITE);putpixel(bx,by,WHITE);
-        ax+=1.7;bx+=1.7;ay-=1;by-=1;
-      }
   //END
   delay(5000);  getch();
 }
